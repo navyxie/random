@@ -1,0 +1,33 @@
+{
+  "name": "random-rate",
+  "version": "0.0.1",
+  "description": "返回一个按概率的值",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/navyxie/random.git"
+  },
+  "keywords": [
+    "概率",
+    "比率",
+    "rate",
+    "随机数",
+    "random",
+    "number"
+  ],
+  "devDependencies": {
+    "mocha": "^2.2.5",
+    "should": "^8.3.0"
+  },
+  "author": {
+    "name": "navyxie"
+  },
+  "license": "ISC",
+  "homepage": "https://github.com/navyxie/random",
+  "maintainers": [
+    {
+      "name": "navyxie",
+      "email": "navyxie2010@gmail.com"
+    }
+  ]
+}
