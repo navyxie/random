@@ -1,5 +1,5 @@
 {
-  "name": "random-rate",
+  "name": "rate-random",
   "version": "0.0.1",
   "description": "返回一个按概率的值",
   "main": "index.js",
