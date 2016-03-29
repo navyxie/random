@@ -68,6 +68,9 @@ module.exports = {
 	rate:function(obj) {
 		var keyArr = [],valArr = [];
 		var returnKey;
+		if(isString(obj)){
+			return obj;
+		}
 		if(isArray(obj)){
 			return randomArr(obj);
 		}
