@@ -8,6 +8,10 @@ describe('test api : rate',function(){
 		arr.should.containEql(rate(arr));
 	});
 	it('should be ok',function(){
+		var arr = [];
+		should(rate(arr)).undefined();
+	});
+	it('should be ok',function(){
 		var arr = ['A',{B:'Object'},'C'];
 		arr.should.containEql(rate(arr));
 	});
@@ -18,6 +22,14 @@ describe('test api : rate',function(){
 			'C':'90%'
 		};
 		obj.should.have.properties(rate(obj));
+	});
+	it('should be ok',function(){
+		var obj = {};
+		should(rate(obj)).undefined();
+	});
+	it('should be ok',function(){
+		var obj = "str";
+		rate(obj).should.be.equal(obj);
 	});
 	it('should be ok',function(){
 		var obj = {

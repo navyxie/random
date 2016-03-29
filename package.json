@@ -1,8 +1,11 @@
 {
   "name": "rate-random",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "返回一个按概率的值",
   "main": "index.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/navyxie/random.git"
