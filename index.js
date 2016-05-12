@@ -20,14 +20,14 @@ function isUndefined(ud){
 	return isType(ud,'Undefined');
 }
 function randomArr(arr){
-	return arr[Math.ceil(Math.random()*(arr.length))%(arr.length)];
+	return arr[randomNum(arr.length)];
 }
-function sumArrPre(arr,arrIndex){
-	var total=0;
-	while(arrIndex--){
-		total += arr[arrIndex];
+function randomNum(min,max){
+	if(isUndefined(max)){
+		max = min;
+		min = 0;
 	}
-	return total;
+	return min + Math.floor(Math.random()*max);
 }
 function randomArrByVal(arr,percent){
 	var tempArr = [];
@@ -64,7 +64,7 @@ function getReturnKey(keys,rKey){
 	}
 	return keys[rKey];
 }
-module.exports = {
+var self = module.exports = {
 	rate:function(obj) {
 		var keyArr = [],valArr = [];
 		var returnKey;
@@ -91,9 +91,12 @@ module.exports = {
 		}
 		return;
 	},
-	randomArr:function(arr,count){
+	randomArr:function(arr,count,random_key){
 		var resultArr = [],tempArr = [];
+		var itemIsObj = true;
+		var keyObj = {};
 		if(!isNumber(count)){
+			random_key = count;
 			count = 1;
 		}
 		if(isArray(arr)){
@@ -101,9 +104,26 @@ module.exports = {
 			if(count >= arr.length){
 				return tempArr;
 			}
-			for(var i = 0 ; i < count ; i++){
-				resultArr = resultArr.concat(tempArr.splice(parseInt(Math.random()*(tempArr.length)),1));
-			}		
+			for(var i = 0 , len = arr.length ; i < len ; i++){
+				if(!isObject(arr[i])){
+					itemIsObj = false;
+					break;
+				}
+				keyObj[i] = arr[i][random_key] || 0;
+			}
+			if(itemIsObj === true && !isUndefined(random_key)){
+				for(i = 0 ; i < count ; i++){
+					var oneKey = self.rate(keyObj);
+					if(!isUndefined(oneKey)){
+						resultArr.push(tempArr[oneKey]);
+						delete keyObj[oneKey];
+					}
+				}
+			}else{
+				for(i = 0 ; i < count ; i++){
+					resultArr = resultArr.concat(tempArr.splice(parseInt(Math.random()*(tempArr.length)),1));
+				}	
+			}	
 		}
 		return resultArr;
 	}
