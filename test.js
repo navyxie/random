@@ -77,4 +77,36 @@ describe('test api : randomArr',function(){
 		var a = ['A','B','C'];
 		randomArr(a,4).should.be.length(3);
 	});
+	it('should be ok , array item is obj , random by key',function(){
+		var a = [{a:'a',weight:2},{b:'b',weight:20},{c:'c',weight:1}];
+		var arr = randomArr(a,'weight');
+		arr.should.be.length(1);
+	});
+	it('should be ok , array item is obj , random by key',function(){
+		var a = [{a:'a',weight:2},{b:'b',weight:20},{c:'c',weight:1}];
+		var arr = randomArr(a,2,'weight');
+		arr.should.be.length(2);
+	});
+	it('should be ok , array item is obj , random by key',function(){
+		var a = [{a:'a'},{b:'b'},{c:'c',weight:1}];
+		var arr = randomArr(a,'weight');
+		arr.should.be.length(1);
+		arr[0]['c'].should.be.equal('c');
+	});
+	it('should be ok , array item is obj , random by key',function(){
+		var a = [{a:'a'},{b:'b'},{c:'c',weight:1}];
+		var arr = randomArr(a,2,'weight');
+		arr.should.be.length(1);
+		arr[0]['c'].should.be.equal('c');
+	});
+	it('should be ok , array item is obj , random by key',function(){
+		var a = [{a:'a'},{b:'b'},{c:'c',weight:0}];
+		var arr = randomArr(a,2,'weight');
+		arr.should.be.length(0);
+	});
+	it('should be ok , array item is obj , random by key',function(){
+		var a = [{a:'a',weight:2},{b:'b',weight:20},{c:'c',weight:1}];
+		var arr = randomArr(a,2);
+		arr.should.be.length(2);
+	});
 })
