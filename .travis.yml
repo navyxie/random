@@ -1,0 +1,15 @@
+language: node_js
+
+repo_token: YeNnTodALGVqjWXfAeZHPyx1un6M1mimv
+
+node_js: 
+
+  - 0.10.35
+
+
+script: npm test
+
+after_script: npm run cov
+
+after_success: 
+  "curl -L -l https://coveralls.io/repos/github/navyxie/random/badge.svg?branch=master"

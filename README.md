@@ -1,5 +1,7 @@
 # 概率生成器
 
+[![Build Status via Travis CI](https://travis-ci.org/navyxie/random.svg?branch=master)](https://travis-ci.org/navyxie/random) [![Coverage Status](https://coveralls.io/repos/github/navyxie/random/badge.svg?branch=master)](https://coveralls.io/github/navyxie/random?branch=master)
+
 ## API
 
 - [`rate`](#rate)
