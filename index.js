@@ -6,9 +6,6 @@
 	function isObject(obj){
 		return isType(obj,'Object');
 	}
-	function isFunction(fn){
-		return isType(fn,'Function');
-	}
 	function isArray(arr){
 		return isType(arr,'Array');
 	}
@@ -70,9 +67,6 @@
 		rate:function(obj) {
 			var keyArr = [],valArr = [];
 			var returnKey;
-			if(isString(obj)){
-				return obj;
-			}
 			if(isArray(obj)){
 				return randomArr(obj);
 			}
@@ -91,7 +85,7 @@
 					return randomArr(keyArr);
 				}
 			}
-			return;
+			return obj;
 		},
 		randomArr:function(arr,count,random_key){
 			var resultArr = [],tempArr = [];
