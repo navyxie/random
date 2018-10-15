@@ -27,9 +27,11 @@ api : randomArr
 ```
 var RateRandom = require('rate-random');
 var a = [1,2,3];
+// return Array
 RateRandom.randomArr(a);//从1，2，3中随机抽取一个
 RateRandom.randomArr(a,2);////从1，2，3中随机抽取两个
 RateRandom.randomArr([{a:'a',weight:10},{b:'b',weight:20},{c:'c',weight:1}],'weight');随机抽取一个，以weight为权重
 RateRandom.randomArr([{a:'a',weight:10},{b:'b',weight:20},{c:'c',weight:1}],2,'weight');随机抽取两个，以weight为权重
 RateRandom.randomArr([{a:'a',weight:10},{b:'b',weight:20},{c:'c',weight:1}],2);随机抽取两个
+RateRandom.randomArr([{a:'a',weight:'10%'},{b:'b',weight:'20%'},{c:'c',weight:'1%'}],2);随机抽取两个
 ```
