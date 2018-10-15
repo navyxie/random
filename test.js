@@ -64,6 +64,7 @@ describe('test api : rate',function(){
 		obj.should.have.properties(rate(obj));
 	});
 	it('should be ok',function(){
+		this.timeout(50000)
 		var obj = {
 			'A':0,
 			'B':2,
@@ -78,6 +79,7 @@ describe('test api : rate',function(){
 		count.should.be.equal(0)
 	});
 	it('should be ok',function(){
+		this.timeout(50000)
 		var obj = {
 			'A':0,
 			'B':0,
@@ -92,6 +94,7 @@ describe('test api : rate',function(){
 		count.should.be.equal(1000000)
 	});
 	it('should be ok',function(){
+		this.timeout(50000)
 		var obj = {
 			'A':0,
 			'B':'22%',
@@ -106,6 +109,7 @@ describe('test api : rate',function(){
 		count.should.be.equal(0)
 	});
 	it('should be ok',function(){
+		this.timeout(50000)
 		var obj = {
 			'A':0,
 			'B':0,
