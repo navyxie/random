@@ -36,13 +36,14 @@
 		try{
 			for(i = 0 , len = arr.length ; i < len; i++){
 				if(percent){
-					tempArr[i] = parseInt(arr[i].replace('%',''));
+					tempArr[i] = (arr[i] == 0) ? 0 : arr[i].replace('%','');
 				}else{
-					tempArr[i] = parseInt(arr[i]);
+					tempArr[i] = arr[i];
 				}
+				tempArr[i] = 1 * tempArr[i]
 				total += tempArr[i];
 			}
-			randomVal = Math.ceil(Math.random()*total);
+			randomVal = Math.random()*total;
 			if(randomVal === 0){
 				return;
 			}
@@ -77,9 +78,22 @@
 						valArr.push(obj[k]);
 					}
 				}
-				if(isString(valArr[0]) && /^\d{1,2}%$/.test(valArr[0])){
-					return getReturnKey(keyArr,randomArrByVal(valArr,true));
-				}else if(isNumber(valArr[0])){
+				var rateType = 2; //default number
+				var len = valArr.length
+				for (var i = 0 ; i < len; i++) {
+					if (isString(valArr[i]) && ~~valArr[i].indexOf('%')) {
+						rateType = 1;
+						break;
+					}
+					if (!isNumber(valArr[i])) {
+						rateType = 0;
+						break;
+					}
+				}
+				if(rateType === 1){
+					var a = randomArrByVal(valArr,true)
+					return getReturnKey(keyArr,a);
+				}else if(rateType === 2){
 					return getReturnKey(keyArr,randomArrByVal(valArr));
 				}else{
 					return randomArr(keyArr);
